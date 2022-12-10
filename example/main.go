@@ -27,10 +27,10 @@ func main() {
 		notification.NewDefault("notification 5", "type 3"),
 	}
 
-	client1 := newClient("client 1", isAllowedClient1)
-	client2 := newClient("client 2", isAllowedClient2)
-	client3 := newClient("client 3", func(n notification.Notification) bool { return true })
-	client4 := newClient("client 4", nil)
+	client1 := newClient("client 1", isAllowedClient1)                                       //only type 1
+	client2 := newClient("client 2", isAllowedClient2)                                       //only type 2
+	client3 := newClient("client 3", func(n notification.Notification) bool { return true }) //all notifications
+	client4 := newClient("client 4", nil)                                                    //none notification
 
 	notification.RegisterClient(client1, client2, client3, client4)
 
